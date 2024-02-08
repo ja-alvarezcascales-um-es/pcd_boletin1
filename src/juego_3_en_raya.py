@@ -76,5 +76,27 @@ def test_movimiento_incorrecto():
     assert False == movimiento_valido(x,y,movimientos_otro_jugador)
 
 
-#t= generar_tablero(n, movimientos_jugadores)
-#print(t, len(t))
+"""
+Método que permite determinar si los movimientos de un jugador le
+permite ganar una partida.
+ Parámetros:
+ * movimientos_jugador: dict con el conjunto de movimientos de un
+jugador
+"""
+
+def jugada_ganadora(movimientos_jugador):
+
+    for fila in movimientos_jugador:
+        movimientos_columna = movimientos_jugador[fila]
+        if len(movimientos_columna)==3:
+            return True
+    return False
+
+
+def test_no_ganador():
+    movimientos_jugador={2:[2,3]}
+    assert False == jugada_ganadora(movimientos_jugador)
+def test_ganador():
+    movimientos_jugador={2:[1,2,3]}
+    assert True == jugada_ganadora(movimientos_jugador)
+
