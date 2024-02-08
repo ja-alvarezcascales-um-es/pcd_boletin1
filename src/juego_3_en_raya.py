@@ -140,7 +140,7 @@ while casillas_libres > 0:
     movimientos_jugador_activo= movimientos_jugadores[jugador_activo]
     movimientos_otro_jugador = movimientos_jugadores[(jugador_activo+1)%2]
     if movimiento_valido(x,y, movimientos_otro_jugador):
-        
+
         mov_col= movimientos_jugador_activo.get(x,[])
         mov_col.append(y)
         movimientos_jugador_activo[x]= mov_col
@@ -160,3 +160,5 @@ while casillas_libres > 0:
 
         casillas_libres= casillas_libres -1
         jugador_activo = (jugador_activo+1) % 2
+
+        
