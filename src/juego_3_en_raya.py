@@ -1,5 +1,6 @@
-n = 3
+
 import pytest
+import os
 def test_generar_tablero():
     mov_jugador_1 = {}
     mov_jugador_2 = {}
@@ -90,6 +91,7 @@ def jugada_ganadora(movimientos_jugador):
         movimientos_columna = movimientos_jugador[fila]
         if len(movimientos_columna)==3:
             return True
+        
     return False
 
 
@@ -152,13 +154,13 @@ while casillas_libres > 0:
         if jugada_ganadora(movimientos_jugador_activo):
             print(F"ENHORABUENA EL JUGADOR {jugador_activo+1} HA GANADO")
             break
-        else:
-            frequency = 2000 # Set Frequency To 2500 Hertz
-            duration = 1000 # Set Duration To 1000 ms == 1 second
-            print('\a')
-            print("Movimiento invalido. Turno para el siguiente jugador")
+    else:
+        frequency = 2000 # Set Frequency To 2500 Hertz
+        duration = 1000 # Set Duration To 1000 ms == 1 second
+        print('\a')
+        print("Movimiento invalido. Turno para el siguiente jugador")
 
-        casillas_libres= casillas_libres -1
-        jugador_activo = (jugador_activo+1) % 2
+    casillas_libres= casillas_libres -1
+    jugador_activo = (jugador_activo+1) % 2
 
         
